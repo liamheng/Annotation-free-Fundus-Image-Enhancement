@@ -48,19 +48,13 @@ To set up your own dataset constructed like images/cataract_dataset. Note that t
 
 ## Trained model's weight
 
-For the model of "Restoration Of Cataract Fundus Images Via Unsupervised Domain Adaptation", please download the pretrained model from this link:
-
-https://drive.google.com/file/d/1Ystqt3RQVfIPPukE7ZdzzFM_hBqB0lr0/view?usp=sharing
-
-Then, place the document in project_root/checkpoints/cataract_model, so that we can get the file like project_root/checkpoints/cataract_model/latest_net_G.pth
-
-
-
 For the model of "An Annotation-free Restoration Network for Cataractous Fundus Images", please download the pretrained model from this link:
 
 https://drive.google.com/file/d/1eEzCbKPfKu72UqPBfk3OBUSi-a93T0eg/view?usp=sharing
 
 Then, place the document in project_root/checkpoints/cataract_model, so that we can get the file like project_root/checkpoints/arcnet/latest_net_G.pth
+
+For the model of SCRNet, the trained weight will be coming soon.
 
 # Command to run
 
@@ -75,13 +69,13 @@ python train.py --dataroot ./images/cataract_dataset --name arcnet --model arcne
 or
 
 ```
-python train.py --dataroot ./images/cataract_dataset --name arcnet --model scrnet --netG unet_256 --input_nc 3 --direction AtoB --dataset_mode cataract_guide_padding --norm instance --batch_size 8 --gpu_ids 0
+python train.py --dataroot ./images/cataract_dataset --name scrnet --model scrnet --input_nc 3 --direction AtoB --dataset_mode cataract_guide_padding --norm instance --batch_size 8 --gpu_ids 0 --lr_policy linear --n_epochs 150 --n_epochs_decay 50
 ```
 
 ## Test & Visualization
 
 ```
-python test.py --dataroot ./images/cataract_dataset --name arcnet --model arcnet --netG unet_256 --input_nc 6 --direction AtoB --dataset_mode cataract_guide_padding --norm batch --gpu_ids 0
+python test.py --dataroot ./images/cataract_dataset --name arcnet --model arcnet --netG unet_256 --input_nc 6 --direction AtoB --dataset_mode cataract_guide_padding --norm batch --gpu_ids 0 --lr_policy linear --n_epochs 150 --n_epochs_decay 50
 ```
 
 or
