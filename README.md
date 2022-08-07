@@ -54,7 +54,11 @@ https://drive.google.com/file/d/1eEzCbKPfKu72UqPBfk3OBUSi-a93T0eg/view?usp=shari
 
 Then, place the document in project_root/checkpoints/cataract_model, so that we can get the file like project_root/checkpoints/arcnet/latest_net_G.pth
 
-For the model of SCRNet, the trained weight will be coming soon.
+For the model of ScrNet, 'Structure-consistent Restoration Network for Cataract Fundus Image Enhancement', please download the pretrained model from this link:
+
+https://drive.google.com/file/d/1TwZTPLGRQAobvJM99mjxCkKgAKFib9Ap/view?usp=sharing
+
+Then, place the document in project_root/checkpoints/, so that we can get the file like project_root/checkpoints/scrnet/latest_net_G.pth
 
 # Command to run
 
@@ -62,26 +66,30 @@ Please note that root directory is the project root directory.
 
 ## Train
 
+For ArcNet:
+
 ```
 python train.py --dataroot ./images/cataract_dataset --name arcnet --model arcnet --netG unet_256 --input_nc 6 --direction AtoB --dataset_mode cataract_guide_padding --norm batch --batch_size 8 --gpu_ids 0
 ```
 
-or
+For ScrNet:
 
 ```
-python train.py --dataroot ./images/cataract_dataset --name scrnet --model scrnet --input_nc 3 --direction AtoB --dataset_mode cataract_guide_padding --norm instance --batch_size 8 --gpu_ids 0 --lr_policy linear --n_epochs 150 --n_epochs_decay 50
+python train.py --dataroot ./images/cataract_dataset --name scrnet --model scrnet --input_nc 3 --direction AtoB --dataset_mode cataract_with_mask --norm instance --batch_size 8 --gpu_ids 0 --lr_policy linear --n_epochs 150 --n_epochs_decay 50
 ```
 
 ## Test & Visualization
+
+For ArcNet:
 
 ```
 python test.py --dataroot ./images/cataract_dataset --name arcnet --model arcnet --netG unet_256 --input_nc 6 --direction AtoB --dataset_mode cataract_guide_padding --norm batch --gpu_ids 0 --lr_policy linear --n_epochs 150 --n_epochs_decay 50
 ```
 
-or
+For ScrNet:
 
 ```
-python test.py --dataroot ./datasets/dataset_name --name train_project --model pixDA_sobel --netG unet_combine_2layer --direction AtoB --dataset_mode cataract --norm instance --input_nc 3 --output_nc 3
+python test.py --dataroot ./images/cataract_dataset --name scrnet --model scrnet --netG unet_combine_2layer --direction AtoB --dataset_mode cataract_with_mask --input_nc 3 --output_nc 3
 ```
 
 # Reference
@@ -103,6 +111,7 @@ python test.py --dataroot ./datasets/dataset_name --name train_project --model p
 [8] Li H ,  Liu H ,  Hu Y , et al. Restoration Of Cataract Fundus Images Via Unsupervised Domain Adaptation[C]// 2021 IEEE 18th International Symposium on Biomedical Imaging (ISBI). IEEE, 2021.
 
 [9] Li H, Liu H, Hu Y, et al. An Annotation-free Restoration Network for Cataractous Fundus Images[J]. IEEE Transactions on Medical Imaging, 2022.
+
 # Citation
 
 ```
@@ -113,12 +122,10 @@ python test.py --dataroot ./datasets/dataset_name --name train_project --model p
   year={2022},
   publisher={IEEE}
 }
-@inproceedings{li2021restoration,
-  title={Restoration Of Cataract Fundus Images Via Unsupervised Domain Adaptation},
-  author={Li, Heng and Liu, Haofeng and Hu, Yan and Higashita, Risa and Zhao, Yitian and Qi, Hong and Liu, Jiang},
-  booktitle={2021 IEEE 18th International Symposium on Biomedical Imaging (ISBI)},
-  pages={516--520},
-  year={2021},
-  organization={IEEE}
+@article{li2022structure,
+  title={Structure-consistent Restoration Network for Cataract Fundus Image Enhancement},
+  author={Li, Heng and Liu, Haofeng and Fu, Huazhu and Shu, Hai and Zhao, Yitian and Luo, Xiaoling and Hu, Yan and Liu, Jiang},
+  journal={arXiv preprint arXiv:2206.04684},
+  year={2022}
 }
 ```
