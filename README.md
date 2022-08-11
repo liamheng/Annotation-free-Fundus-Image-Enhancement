@@ -11,6 +11,11 @@ We propose a method of structure-consistent restoration network for cataract fun
 
 ![](./images/scrnet_overview.png)
 
+# A Generic Fundus Image Enhancement Network with Representation Learning of Consistency Constraints
+
+We propose a generic fundus image enhancement network (GFE-Net) to solute any image degradation without supervised data.
+
+
 # Prerequisites
 
 \- Win10
