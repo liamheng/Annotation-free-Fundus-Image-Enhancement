@@ -13,8 +13,8 @@ def process(save_path, image_list):
         os.mkdir(os.path.join(save_path, 'mask'))
     for image_path in image_list:
         dst_image = image_path.split('\\')[-1]
-        dst_image_path = os.path.join(save_path, 'image', dst_image.replace('.jpeg', '.png'))
-        dst_mask_path = os.path.join(save_path, 'mask', dst_image.replace('.jpeg', '.png'))
+        dst_image_path = os.path.join(save_path, 'image', dst_image.replace('.jpeg', '.png').replace('.jpg', '.png'))
+        dst_mask_path = os.path.join(save_path, 'mask', dst_image.replace('.jpeg', '.png').replace('.jpg', '.png'))
         if os.path.exists(dst_image_path):
             print('continue...')
             continue
