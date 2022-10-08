@@ -33,6 +33,8 @@ conda install visdom dominate -c conda-forge # install visdom and dominate
 
 Use the script in ./utils/catacact_simulation.py
 
+Before simulation, you can use ./data/run_pre_process.py to get the pre-processed image and mask.
+
 
 # Visualization when training
 
