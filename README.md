@@ -54,11 +54,15 @@ For the model of "An Annotation-free Restoration Network for Cataractous Fundus 
 
 https://drive.google.com/file/d/1eEzCbKPfKu72UqPBfk3OBUSi-a93T0eg/view?usp=sharing
 
+or use link: https://pan.baidu.com/s/176ZWtgoSZGDFw2NQEFzs6g , code: vzti
+
 Then, place the document in project_root/checkpoints/cataract_model, so that we can get the file like project_root/checkpoints/arcnet/latest_net_G.pth
 
 For the model of ScrNet, 'Structure-consistent Restoration Network for Cataract Fundus Image Enhancement', please download the pretrained model from this link:
 
 https://drive.google.com/file/d/1TwZTPLGRQAobvJM99mjxCkKgAKFib9Ap/view?usp=sharing
+
+or use link: https://pan.baidu.com/s/1MfAV1NMrWapBtR7IPO4jzQ , code: 6acm
 
 Then, place the document in project_root/checkpoints/, so that we can get the file like project_root/checkpoints/scrnet/latest_net_G.pth
 
