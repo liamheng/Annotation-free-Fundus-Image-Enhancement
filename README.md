@@ -11,6 +11,11 @@ We propose a method of structure-consistent restoration network for cataract fun
 
 ![](./images/scrnet_overview.png)
 
+# A Generic Fundus Image Enhancement Network with Representation Learning of Consistency Constraints
+
+We propose a generic fundus image enhancement network (GFE-Net) to solute any image degradation without supervised data.
+
+
 # Prerequisites
 
 \- Win10
@@ -66,6 +71,8 @@ or use link: https://pan.baidu.com/s/1MfAV1NMrWapBtR7IPO4jzQ , code: 6acm
 
 Then, place the document in project_root/checkpoints/, so that we can get the file like project_root/checkpoints/scrnet/latest_net_G.pth
 
+For the model of GFE-Net, "A Generic Fundus Image Enhancement Network with Representation Learning of Consistency Constraints", the pretrained model will be released soon.
+
 # Command to run
 
 Please note that root directory is the project root directory.
@@ -84,6 +91,10 @@ For ScrNet:
 python train.py --dataroot ./images/cataract_dataset --name scrnet --model scrnet --input_nc 3 --direction AtoB --dataset_mode cataract_with_mask --norm instance --batch_size 8 --gpu_ids 0 --lr_policy linear --n_epochs 150 --n_epochs_decay 50
 ```
 
+For GFE-Net:
+
+Released soon.
+
 ## Test & Visualization
 
 For ArcNet:
@@ -97,6 +108,10 @@ For ScrNet:
 ```
 python test.py --dataroot ./images/cataract_dataset --name scrnet --model scrnet --netG unet_combine_2layer --direction AtoB --dataset_mode cataract_with_mask --input_nc 3 --output_nc 3
 ```
+
+For GFE-Net:
+
+Released soon.
 
 # Reference
 
