@@ -57,9 +57,9 @@ To set up your own dataset constructed like images/cataract_dataset. Note that t
 
 For the model of "An Annotation-free Restoration Network for Cataractous Fundus Images", please download the pretrained model from this link:
 
-https://drive.google.com/file/d/1eEzCbKPfKu72UqPBfk3OBUSi-a93T0eg/view?usp=sharing
+https://drive.google.com/file/d/1VJ-_W7rRmy90AcgeAJtt_z7fgeBpC4Id/view?usp=share_link
 
-or use link: https://pan.baidu.com/s/176ZWtgoSZGDFw2NQEFzs6g , code: vzti
+or use link: https://pan.baidu.com/s/1hFt0bMpBb5V0Gj0ogYHGbA , code: 3xg0
 
 Then, place the document in project_root/checkpoints/cataract_model, so that we can get the file like project_root/checkpoints/arcnet/latest_net_G.pth
 
