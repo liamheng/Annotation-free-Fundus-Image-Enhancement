@@ -53,6 +53,28 @@ http://localhost:8097/
 
 To set up your own dataset constructed like images/cataract_dataset. Note that the number of source images should be bigger than the number of target images, or you can design you own data loader.
 
+Use util/get_mask.py to get the mask of target and source, and place them into the dataset.
+
+For a cataract dataset, the architecture of the directory should be:
+
+--cataract_dataset
+
+​	--source
+
+​		--AB.jpg
+
+​	--source_mask
+
+​		--AB.png
+
+​	--target
+
+​		--A.jpg
+
+​	--target_mask
+
+​		--A.png
+
 ## Trained model's weight
 
 For the model of "An Annotation-free Restoration Network for Cataractous Fundus Images", please download the pretrained model from this link:
