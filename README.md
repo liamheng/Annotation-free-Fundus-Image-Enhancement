@@ -122,7 +122,7 @@ Released soon.
 For ArcNet:
 
 ```
-python test.py --dataroot ./images/cataract_dataset --name arcnet --model arcnet --netG unet_256 --input_nc 6 --direction AtoB --dataset_mode cataract_guide_padding --norm batch --gpu_ids 0 --lr_policy linear --n_epochs 150 --n_epochs_decay 50
+python test.py --dataroot ./images/cataract_dataset --name arcnet --model arcnet --netG unet_256 --input_nc 6 --direction AtoB --dataset_mode cataract_guide_padding --norm batch --gpu_ids 0
 ```
 
 For ScrNet:
