@@ -127,6 +127,20 @@ For GFE-Net:
 
 Released soon.
 
+## Train and test for 512 x 512
+
+Please modify the option of 'load_size' to 512 when using train.py
+
+```
+--load_size 512 --crop_size 256
+```
+
+In  test.py
+
+```
+--load_size 512 --crop_size 512
+```
+
 # Reference
 
 [1] A. Mitra, S. Roy, S. Roy, and S. K. Setua, “Enhancement and restoration of non-uniform illuminated fundus image of retina obtained through thin layer of cataract,” Computer methods and programs in biomedicine, vol. 156, pp. 169–178, 2018.
