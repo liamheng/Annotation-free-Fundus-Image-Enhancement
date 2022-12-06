@@ -65,6 +65,9 @@ class BaseOptions():
         parser.add_argument('--num_test', type=int, default=126, help='how many test images to run')
         parser.add_argument('--aspect_ratio', type=float, default=1.0, help='aspect ratio of result images')
         parser.add_argument('--target_gt_dir', type=str, default='target_gt')
+        parser.add_argument('--inference_size', type=int, default=256, help='inference size, default 256, '
+                                                    'if larger than 256, train with load_size 566, 466, 366, 286')
+
         self.initialized = True
         return parser
 

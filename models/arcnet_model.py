@@ -23,8 +23,9 @@ class ArcNetModel(BaseModel):
             parser.set_defaults(pool_size=0, gan_mode='vanilla')
             parser.add_argument('--lambda_L1', type=float, default=100.0, help='weight for L1 loss')
             parser.add_argument('--lambda_L1G', type=float, default=100.0, help='weight for L1G loss')
-            parser.add_argument('--lambda_DDP', type=float, default=1, help='weight for DDP')
-            parser.add_argument('--lambda_DP', type=float, default=1, help='weight for G loss')
+            # DP and DDP loss depend on the data, we recommend [0.1, 1]
+            parser.add_argument('--lambda_DDP', type=float, default=0.1, help='weight for DDP')
+            parser.add_argument('--lambda_DP', type=float, default=0.1, help='weight for DP loss')
 
             parser.add_argument('--RMS', action='store_true',)
         parser.add_argument('--filter_width', type=int, default=53, help='weight for G loss')

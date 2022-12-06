@@ -36,15 +36,14 @@ class UnetCombine2LayerGenerator(nn.Module):
         unet_block2 = UnetSkipConnectionBlock(ngf, ngf * 2, input_nc=None, norm_layer=norm_layer)
         unet_block1 = UnetSkipConnectionBlock(output_nc, ngf, input_nc=input_nc, outermost=True, norm_layer=norm_layer)  # add the outermost layer
 
-        self.down1, self.h_up1, self.up1 = unet_block1.down, unet_block1.up, unet_block1.h_up
-        self.down2, self.h_up2, self.up2 = unet_block2.down, unet_block2.up, unet_block2.h_up
-        self.down3, self.h_up3, self.up3 = unet_block3.down, unet_block3.up, unet_block3.h_up
-        self.down4, self.h_up4, self.up4 = unet_block4.down, unet_block4.up, unet_block4.h_up
-        self.down5, self.h_up5, self.up5 = unet_block5.down, unet_block5.up, unet_block5.h_up
-        self.down6, self.h_up6, self.up6 = unet_block6.down, unet_block6.up, unet_block6.h_up
-        self.down7, self.h_up7, self.up7 = unet_block7.down, unet_block7.up, unet_block7.h_up
-        self.down8, self.h_up8, self.up8 = unet_block8.down, unet_block8.up, unet_block8.h_up
-
+        self.down1, self.up1, self.h_up1 = unet_block1.down, unet_block1.up, unet_block1.h_up
+        self.down2, self.up2, self.h_up2 = unet_block2.down, unet_block2.up, unet_block2.h_up
+        self.down3, self.up3, self.h_up3 = unet_block3.down, unet_block3.up, unet_block3.h_up
+        self.down4, self.up4, self.h_up4 = unet_block4.down, unet_block4.up, unet_block4.h_up
+        self.down5, self.up5, self.h_up5 = unet_block5.down, unet_block5.up, unet_block5.h_up
+        self.down6, self.up6, self.h_up6 = unet_block6.down, unet_block6.up, unet_block6.h_up
+        self.down7, self.up7, self.h_up7 = unet_block7.down, unet_block7.up, unet_block7.h_up
+        self.down8, self.up8, self.h_up8 = unet_block8.down, unet_block8.up, unet_block8.h_up
 
     def forward(self, x):
         """Standard forward"""
@@ -123,7 +122,6 @@ class UnetSkipConnectionBlock(nn.Module):
             upconv = nn.ConvTranspose2d(inner_nc * 2, outer_nc,
                                         kernel_size=4, stride=2,
                                         padding=1)
-            # 仅仅修改了这个
             h_upconv = nn.ConvTranspose2d(inner_nc * 2, outer_nc,
                                         kernel_size=4, stride=2,
                                         padding=1)

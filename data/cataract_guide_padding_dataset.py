@@ -75,7 +75,7 @@ class CataractGuidePaddingDataset(BaseDataset):
         #  = get_transform_six_channel(self.opt, source_transform_params, grayscale=(self.input_nc == 1))
         # source_B_mask_transform = get_transform_six_channel(self.opt, source_transform_params, grayscale=(self.output_nc == 1))
 
-        target_transform_params = get_params(self.opt, TA.size, is_source=False)
+        target_transform_params = get_params(self.opt, TA.size)
         target_A_transform, target_A_mask_transform = get_transform_six_channel(self.opt, target_transform_params, grayscale=(self.input_nc == 1))
 
         SA = source_A_transform(SA)

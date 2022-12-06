@@ -65,7 +65,7 @@ class BaseDataset(data.Dataset, ABC):
         pass
 
 
-def get_params(opt, size, is_source=True):
+def get_params(opt, size):
     w, h = size
     new_h = h
     new_w = w
@@ -77,7 +77,12 @@ def get_params(opt, size, is_source=True):
             if not opt.isTrain:
                 new_h = new_w = opt.load_size
             else:
-                new_h = new_w = random.choice([286, 306, 326, 346])
+                if opt.inference_size == 256:
+                    new_h = new_w = random.choice([286, 306, 326, 346])
+                elif opt.inference_size == 512:
+                    new_h = new_w = random.choice([646, 606, 566, 526])
+                else:
+                    new_h = new_w = random.choice([286, 306, 326, 346])
             # new_h = new_w = random.choice([opt.load_source_size, opt.load_target_size])
     elif opt.preprocess == 'scale_width_and_crop':
         new_w = opt.load_size
@@ -148,10 +153,10 @@ def get_transform_six_channel(opt, params=None, grayscale=False, method=Image.BI
             load_size = params['load_size']
             osize = [load_size, load_size]
         transform_list.append(transforms.Resize(osize, method))
-        mask_transform_list.append(transforms.Resize(osize, method))
+        mask_transform_list.append(transforms.Resize(osize, Image.NEAREST))
     elif 'scale_width' in opt.preprocess:
         transform_list.append(transforms.Lambda(lambda img: __scale_width(img, opt.load_size, opt.crop_size, method)))
-        mask_transform_list.append(transforms.Lambda(lambda img: __scale_width(img, opt.load_size, opt.crop_size, method)))
+        mask_transform_list.append(transforms.Lambda(lambda img: __scale_width(img, opt.load_size, opt.crop_size, Image.NEAREST)))
 
     if 'crop' in opt.preprocess:
         if params is None:
@@ -163,7 +168,7 @@ def get_transform_six_channel(opt, params=None, grayscale=False, method=Image.BI
 
     if opt.preprocess == 'none':
         transform_list.append(transforms.Lambda(lambda img: __make_power_2(img, base=4, method=method)))
-        mask_transform_list.append(transforms.Lambda(lambda img: __make_power_2(img, base=4, method=method)))
+        mask_transform_list.append(transforms.Lambda(lambda img: __make_power_2(img, base=4, method=Image.NEAREST)))
 
     if not opt.no_flip:
         if params is None:

@@ -61,7 +61,7 @@ class CataractDataset(BaseDataset):
         source_A_transform = get_transform(self.opt, source_transform_params, grayscale=(self.input_nc == 1))
         source_B_transform = get_transform(self.opt, source_transform_params, grayscale=(self.output_nc == 1))
         # target做一个独立的transform
-        target_transform_params = get_params(self.opt, TA.size, is_source=False)
+        target_transform_params = get_params(self.opt, TA.size)
         target_A_transform = get_transform(self.opt, target_transform_params, grayscale=(self.input_nc == 1))
 
         SA = source_A_transform(SA)

@@ -1,17 +1,17 @@
 # **An Annotation-free Restoration Network for Cataractous Fundus Images**
 There is little access to large datasets of cataract images paired with their corresponding clear ones. Therefore, it is unlikely to build a restoration model for cataract images through supervised learning.
 
-Here, we propose an annotation-free restoration network for cataractous fundus images. 
+Here, we propose an annotation-free restoration network for cataractous fundus images [[arXir]](https://arxiv.org/abs/2203.07737).
 
 ![](./images/arcnet_overview.png)
 
 # Structure-consistent Restoration Network for Cataract Fundus Image Enhancement
 
-We propose a method of structure-consistent restoration network for cataract fundus image enhancement. 
+We propose a method of structure-consistent restoration network for cataract fundus image enhancement [[arXiv]](https://arxiv.org/abs/2206.04684). 
 
 ![](./images/scrnet_overview.png)
 
-# A Generic Fundus Image Enhancement Network with Representation Learning of Consistency Constraints
+# A Generic Fundus Image Enhancement Network Boosted by Frequency Self-supervised Representation Learning
 
 We propose a generic fundus image enhancement network (GFE-Net) to solute any image degradation without supervised data.
 
@@ -77,25 +77,15 @@ For a cataract dataset, the architecture of the directory should be:
 
 ## Trained model's weight
 
-**Note:** If you want to use ArcNet in your own dataset, please re-train a new model with your own data, because it is a method based on domain adaptation, which means that it needs target data (without ground truth) in the training phase.
+**Note:** If you want to use ArcNet in your own dataset, please re-train a new model with your own data, because it is a method based on domain adaptation, which means it needs target data (without ground truth) in the training phase.
 
-For the model of "An Annotation-free Restoration Network for Cataractous Fundus Images", please download the pretrained model from this link:
+For the model of ArcNet 'An Annotation-free Restoration Network for Cataractous Fundus Images'', ScrNet, 'Structure-consistent Restoration Network for Cataract Fundus Image Enhancement', and  GFE-Net, 'A Generic Fundus Image Enhancement Network Boosted by Frequency Self-supervised Representation Learning' please download the pretrained model and place the document based on the following table:
 
-https://drive.google.com/file/d/1VJ-_W7rRmy90AcgeAJtt_z7fgeBpC4Id/view?usp=share_link
-
-or use link: https://pan.baidu.com/s/1hFt0bMpBb5V0Gj0ogYHGbA , code: 3xg0
-
-Then, place the document in project_root/checkpoints/cataract_model, so that we can get the file like project_root/checkpoints/arcnet/latest_net_G.pth
-
-For the model of ScrNet, 'Structure-consistent Restoration Network for Cataract Fundus Image Enhancement', please download the pretrained model from this link:
-
-https://drive.google.com/file/d/1TwZTPLGRQAobvJM99mjxCkKgAKFib9Ap/view?usp=sharing
-
-or use link: https://pan.baidu.com/s/1MfAV1NMrWapBtR7IPO4jzQ , code: 6acm
-
-Then, place the document in project_root/checkpoints/, so that we can get the file like project_root/checkpoints/scrnet/latest_net_G.pth
-
-For the model of GFE-Net, "A Generic Fundus Image Enhancement Network with Representation Learning of Consistency Constraints", the pretrained model will be released soon.
+|        | Baidu Cloud                                                  | Google Cloud                                                 | Directory                                        |
+| ------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------ |
+| ArcNet | [ArcNet [3xg0]](https://pan.baidu.com/s/1hFt0bMpBb5V0Gj0ogYHGbA) | [ArcNet](https://drive.google.com/file/d/1VJ-_W7rRmy90AcgeAJtt_z7fgeBpC4Id/view?usp=share_link) | project_root/checkpoints/scrnet/latest_net_G.pth |
+| SCRNet | [SCR-Net in Baidu [o32j]](https://pan.baidu.com/s/1WKeyjMoXElkOJ4gkNO-71w) | [SCRNet](https://drive.google.com/file/d/1TwZTPLGRQAobvJM99mjxCkKgAKFib9Ap/view?usp=sharing) | project_root/checkpoints/arcnet/latest_net_G.pth |
+| GFENet | Coming soon                                                  | Coming soon                                                  | project_root/checkpoints/gfenet/latest_net_G.pth |
 
 # Command to run
 
