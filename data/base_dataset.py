@@ -70,19 +70,19 @@ def get_params(opt, size):
     new_h = h
     new_w = w
     if opt.preprocess == 'resize_and_crop':
-        # TODO:添加数组的尺寸来随机挑选，target只随机裁286
         if opt.source_size_count == 1:
-            new_h = new_w = opt.load_size
+            if opt.load_size < 512:
+                new_h = new_w = 286
+            elif opt.load_size >= 512:
+                new_h = new_w = 606
         else:
             if not opt.isTrain:
                 new_h = new_w = opt.load_size
             else:
-                if opt.inference_size == 256:
+                if opt.load_size < 512:
                     new_h = new_w = random.choice([286, 306, 326, 346])
-                elif opt.inference_size == 512:
-                    new_h = new_w = random.choice([646, 606, 566, 526])
-                else:
-                    new_h = new_w = random.choice([286, 306, 326, 346])
+                elif opt.load_size >= 512:
+                    new_h = new_w = random.choice([526, 566, 606, 646])
             # new_h = new_w = random.choice([opt.load_source_size, opt.load_target_size])
     elif opt.preprocess == 'scale_width_and_crop':
         new_w = opt.load_size
@@ -102,7 +102,6 @@ def get_transform(opt, params=None, grayscale=False, method=Image.BICUBIC, conve
     if grayscale:
         transform_list.append(transforms.Grayscale(1))
     if 'resize' in opt.preprocess:
-        # TODO:resize需要优化，此处只考虑params没有时直接取target的
         if params is None:
             osize = [opt.load_size, opt.load_size]
         else:
