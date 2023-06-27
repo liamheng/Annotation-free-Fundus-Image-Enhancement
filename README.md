@@ -83,8 +83,8 @@ For the model of ArcNet 'An Annotation-free Restoration Network for Cataractous 
 
 |        | Baidu Cloud                                                  | Google Cloud                                                 | Directory                                        |
 | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------ |
-| ArcNet | [ArcNet [3xg0]](https://pan.baidu.com/s/1hFt0bMpBb5V0Gj0ogYHGbA) | [ArcNet](https://drive.google.com/file/d/1VJ-_W7rRmy90AcgeAJtt_z7fgeBpC4Id/view?usp=share_link) | project_root/checkpoints/scrnet/latest_net_G.pth |
-| SCRNet | [SCR-Net in Baidu [o32j]](https://pan.baidu.com/s/1WKeyjMoXElkOJ4gkNO-71w) | [SCRNet](https://drive.google.com/file/d/1TwZTPLGRQAobvJM99mjxCkKgAKFib9Ap/view?usp=sharing) | project_root/checkpoints/arcnet/latest_net_G.pth |
+| ArcNet | [ArcNet [3xg0]](https://pan.baidu.com/s/1hFt0bMpBb5V0Gj0ogYHGbA) | [ArcNet](https://drive.google.com/file/d/1VJ-_W7rRmy90AcgeAJtt_z7fgeBpC4Id/view?usp=share_link) | project_root/checkpoints/arcnet/latest_net_G.pth |
+| SCRNet | [SCR-Net in Baidu [o32j]](https://pan.baidu.com/s/1WKeyjMoXElkOJ4gkNO-71w) | [SCRNet](https://drive.google.com/file/d/1Fwx1R3jHWdr9evW11Az8YYqBULPadZ1K/view?usp=sharing) | project_root/checkpoints/scrnet/latest_net_G.pth |
 | GFENet | Coming soon                                                  | Coming soon                                                  | project_root/checkpoints/gfenet/latest_net_G.pth |
 
 # Command to run

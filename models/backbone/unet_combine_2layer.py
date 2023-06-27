@@ -68,7 +68,6 @@ class UnetCombine2LayerGenerator(nn.Module):
         h_u1 = self.up1(torch.cat([h_u2, d1], 1))
 
         # # upsample
-        # TODO: 完善
         u8 = self.h_up8(d8)
         u7 = self.h_up7(torch.cat([h_u8, u8], 1))
         u6 = self.h_up6(torch.cat([h_u7, u7], 1))
