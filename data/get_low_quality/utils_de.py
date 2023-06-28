@@ -91,7 +91,7 @@ def get_mask(img):
     center, radius = _get_center_radius_by_hough(tmp_mask)
     #resize back
     center = [center[1]*2,center[0]*2]
-    radius = int(radius*2)
+    radius = int(radius*2) - 3
     s_h = max(0,int(center[0] - radius))
     s_w = max(0, int(center[1] - radius))
     bbox = (s_h, s_w, min(h-s_h,2 * radius), min(w-s_w,2 * radius))

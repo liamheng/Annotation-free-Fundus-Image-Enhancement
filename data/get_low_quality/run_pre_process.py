@@ -1,10 +1,12 @@
-from utils_de import *
+from data.get_low_quality.utils_de import *
 import glob
 import os
 import cv2
 from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
+image_root = r'../../images/original_image'
+save_root = r'../../images/preprocess_dataset_0627'
 dsize = (512,512)
 def process(save_path, image_list):
     if not os.path.isdir(os.path.join(save_path, 'image')):
@@ -12,9 +14,9 @@ def process(save_path, image_list):
     if not os.path.isdir(os.path.join(save_path, 'mask')):
         os.mkdir(os.path.join(save_path, 'mask'))
     for image_path in image_list:
-        dst_image = image_path.split('\\')[-1]
-        dst_image_path = os.path.join(save_path, 'image', dst_image.replace('.jpeg', '.png').replace('.jpg', '.png'))
-        dst_mask_path = os.path.join(save_path, 'mask', dst_image.replace('.jpeg', '.png').replace('.jpg', '.png'))
+        dst_image = image_path.split('\\')[-1].replace('.jpeg', '.png').replace('.jpg', '.png').replace('.tif', '.png')
+        dst_image_path = os.path.join(save_path, 'image', dst_image)
+        dst_mask_path = os.path.join(save_path, 'mask', dst_image)
         if os.path.exists(dst_image_path):
             print('continue...')
             continue
@@ -36,12 +38,10 @@ def mkdir(dir_name):
 
 
 if __name__ == "__main__":
-    image_root = r'../images/preprocess_dataset/raw_image/'
-    save_root = r'../images/preprocess_dataset/'
     mkdir(save_root)
     image_list = glob.glob(os.path.join(image_root, '*.png'))
     image_list += glob.glob(os.path.join(image_root, '*.jpeg'))
-    image_list += glob.glob(os.path.join(image_root, '*.jpg'))
+    image_list += glob.glob(os.path.join(image_root, '*.tif'))
     process(save_root, image_list)
 
 

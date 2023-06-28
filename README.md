@@ -13,7 +13,7 @@ We propose a method of structure-consistent restoration network for cataract fun
 
 # A Generic Fundus Image Enhancement Network Boosted by Frequency Self-supervised Representation Learning
 
-We propose a generic fundus image enhancement network (GFE-Net) to solute any image degradation without supervised data.
+We propose a generic fundus image enhancement network (GFE-Net) to solve any image degradation without supervised data.
 
 
 # Prerequisites
@@ -34,28 +34,29 @@ conda install pytorch torchvision -c pytorch # add cuda90 if CUDA 9
 conda install visdom dominate -c conda-forge # install visdom and dominate
 ```
 
-# Simulate cataract-like images
+# Simulation of images
+
+## Cataract images (for ArcNet and SCRNet)
 
 Use the script in ./utils/catacact_simulation.py
 
 Before simulation, you can use ./data/run_pre_process.py to get the pre-processed image and mask.
 
+## Low quality image (for GFE-Net)
 
-# Visualization when training
+Use the script in data/get_low_quality/run_pre_process.py, and modify the image_root and save_root to get the images and masks after preprocessing.
 
-python -m visdom.server
-
-# To open this link in the browser
-
-http://localhost:8097/
+Then, use the script in data/get_low_quality/main_degradation.py and modify the image_root to the save_root, defined last step, to get the low_quality_image and low_quality_mask.
 
 # Dataset preparation
 
 To set up your own dataset constructed like images/cataract_dataset. Note that the number of source images should be bigger than the number of target images, or you can design you own data loader.
 
-Use util/get_mask.py to get the mask of target and source, and place them into the dataset.
+If you don't have any mask image, you can use util/get_mask.py to get the mask of target and source, and place them into the dataset. 
 
-For a cataract dataset, the architecture of the directory should be:
+If you have simulated the low quality image following the previous steps, you can arrange them in the proper format to suit the dataloader.
+
+For a cataract dataset, the architecture of the directory should be: (You can use different image format but you might need to modify the code.)
 
 --cataract_dataset
 
@@ -75,17 +76,25 @@ For a cataract dataset, the architecture of the directory should be:
 
 ​		--A.png
 
+# Visualization when training
+
+python -m visdom.server
+
+# To open this link in the browser
+
+http://localhost:8097/
+
 ## Trained model's weight
 
 **Note:** If you want to use ArcNet in your own dataset, please re-train a new model with your own data, because it is a method based on domain adaptation, which means it needs target data (without ground truth) in the training phase.
 
-For the model of ArcNet 'An Annotation-free Restoration Network for Cataractous Fundus Images'', ScrNet, 'Structure-consistent Restoration Network for Cataract Fundus Image Enhancement', and  GFE-Net, 'A Generic Fundus Image Enhancement Network Boosted by Frequency Self-supervised Representation Learning' please download the pretrained model and place the document based on the following table:
+For the model of ArcNet 'An Annotation-free Restoration Network for Cataractous Fundus Images'', SCR-Net, 'Structure-consistent Restoration Network for Cataract Fundus Image Enhancement', and  GFE-Net, 'A Generic Fundus Image Enhancement Network Boosted by Frequency Self-supervised Representation Learning' please download the pretrained model and place the document based on the following table:
 
-|        | Baidu Cloud                                                  | Google Cloud                                                 | Directory                                        |
-| ------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------ |
-| ArcNet | [ArcNet [3xg0]](https://pan.baidu.com/s/1hFt0bMpBb5V0Gj0ogYHGbA) | [ArcNet](https://drive.google.com/file/d/1VJ-_W7rRmy90AcgeAJtt_z7fgeBpC4Id/view?usp=share_link) | project_root/checkpoints/arcnet/latest_net_G.pth |
-| SCRNet | [SCR-Net in Baidu [o32j]](https://pan.baidu.com/s/1WKeyjMoXElkOJ4gkNO-71w) | [SCRNet](https://drive.google.com/file/d/1Fwx1R3jHWdr9evW11Az8YYqBULPadZ1K/view?usp=sharing) | project_root/checkpoints/scrnet/latest_net_G.pth |
-| GFENet | Coming soon                                                  | Coming soon                                                  | project_root/checkpoints/gfenet/latest_net_G.pth |
+|         | Baidu Cloud                                                  | Google Cloud                                                 | Directory                                        |
+| ------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------ |
+| ArcNet  | [ArcNet [3xg0]](https://pan.baidu.com/s/1hFt0bMpBb5V0Gj0ogYHGbA) | [ArcNet](https://drive.google.com/file/d/1VJ-_W7rRmy90AcgeAJtt_z7fgeBpC4Id/view?usp=share_link) | project_root/checkpoints/arcnet/latest_net_G.pth |
+| SCR-Net | [SCR-Net in Baidu [o32j]](https://pan.baidu.com/s/1WKeyjMoXElkOJ4gkNO-71w) | [SCR-Net](https://drive.google.com/file/d/1Fwx1R3jHWdr9evW11Az8YYqBULPadZ1K/view?usp=sharing) | project_root/checkpoints/scrnet/latest_net_G.pth |
+| GFE-Net | [GFE-Net [kgla]](https://pan.baidu.com/s/1e6zRCQ5CilFTzLX2h95acg) | [GFE-Net](https://drive.google.com/file/d/1cerN6u0aRKr1aiNl31pt7hdALSFJjt7i/view?usp=sharing) | project_root/checkpoints/gfenet/latest_net_G.pth |
 
 # Command to run
 
@@ -99,13 +108,17 @@ For ArcNet:
 python train.py --dataroot ./images/cataract_dataset --name arcnet --model arcnet --netG unet_256 --input_nc 6 --direction AtoB --dataset_mode cataract_guide_padding --norm batch --batch_size 8 --gpu_ids 0
 ```
 
-For ScrNet:
+For SCR-Net:
 
 ```
 python train.py --dataroot ./images/cataract_dataset --name scrnet --model scrnet --input_nc 3 --direction AtoB --dataset_mode cataract_with_mask --norm instance --batch_size 8 --gpu_ids 0 --lr_policy linear --n_epochs 150 --n_epochs_decay 50
 ```
 
 For GFE-Net:
+
+```
+python train.py --dataroot ./images/cataract_dataset --name train_gfenet --model gfenet --direction AtoB --dataset_mode cataract_with_mask --norm instance --batch_size 8 --gpu_ids 2 --lr_policy linear --n_epochs 150 --n_epochs_decay 50
+```
 
 Released soon.
 
@@ -124,6 +137,10 @@ python test.py --dataroot ./images/cataract_dataset --name scrnet --model scrnet
 ```
 
 For GFE-Net:
+
+```
+python test.py --dataroot ./images/cataract_dataset --name gfenet --model gfenet --dataset_mode cataract_with_mask --load_size 256 --crop_size 256
+```
 
 Released soon.
 
