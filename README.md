@@ -182,16 +182,21 @@ In  test.py
 
 ```
 @article{li2022annotation,
-  title={An Annotation-free Restoration Network for Cataractous Fundus Images},
+  title={An annotation-free restoration network for cataractous fundus images},
   author={Li, Heng and Liu, Haofeng and Hu, Yan and Fu, Huazhu and Zhao, Yitian and Miao, Hanpei and Liu, Jiang},
   journal={IEEE Transactions on Medical Imaging},
+  volume={41},
+  number={7},
+  pages={1699--1710},
   year={2022},
   publisher={IEEE}
 }
-@article{li2022structure,
-  title={Structure-consistent Restoration Network for Cataract Fundus Image Enhancement},
+@inproceedings{li2022structure,
+  title={Structure-consistent restoration network for cataract fundus image enhancement},
   author={Li, Heng and Liu, Haofeng and Fu, Huazhu and Shu, Hai and Zhao, Yitian and Luo, Xiaoling and Hu, Yan and Liu, Jiang},
-  journal={arXiv preprint arXiv:2206.04684},
-  year={2022}
+  booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+  pages={487--496},
+  year={2022},
+  organization={Springer}
 }
 ```
