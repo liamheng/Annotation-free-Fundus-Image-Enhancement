@@ -3,13 +3,35 @@ There is little access to large datasets of cataract images paired with their co
 
 Here, we propose an annotation-free restoration network for cataractous fundus images [[arXir]](https://arxiv.org/abs/2203.07737).
 
-![](./images/arcnet_overview.png)
+Citation:
+```
+@article{li2022annotation,
+  title={An annotation-free restoration network for cataractous fundus images},
+  author={Li, Heng and Liu, Haofeng and Hu, Yan and Fu, Huazhu and Zhao, Yitian and Miao, Hanpei and Liu, Jiang},
+  journal={IEEE Transactions on Medical Imaging},
+  volume={41},
+  number={7},
+  pages={1699--1710},
+  year={2022},
+  publisher={IEEE}
+}
+```
 
 # Structure-consistent Restoration Network for Cataract Fundus Image Enhancement
 
 We propose a method of structure-consistent restoration network for cataract fundus image enhancement [[arXiv]](https://arxiv.org/abs/2206.04684). 
 
-![](./images/scrnet_overview.png)
+Citation:
+```
+@inproceedings{li2022structure,
+  title={Structure-consistent restoration network for cataract fundus image enhancement},
+  author={Li, Heng and Liu, Haofeng and Fu, Huazhu and Shu, Hai and Zhao, Yitian and Luo, Xiaoling and Hu, Yan and Liu, Jiang},
+  booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+  pages={487--496},
+  year={2022},
+  organization={Springer}
+}
+```
 
 # A Generic Fundus Image Enhancement Network Boosted by Frequency Self-supervised Representation Learning
 
