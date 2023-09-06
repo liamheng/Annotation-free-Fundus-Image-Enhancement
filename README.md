@@ -1,19 +1,63 @@
 # **An Annotation-free Restoration Network for Cataractous Fundus Images**
 There is little access to large datasets of cataract images paired with their corresponding clear ones. Therefore, it is unlikely to build a restoration model for cataract images through supervised learning.
 
-Here, we propose an annotation-free restoration network for cataractous fundus images [[arXir]](https://arxiv.org/abs/2203.07737).
+Here, we propose an annotation-free restoration network for cataractous fundus images referring to [[arXir]](https://arxiv.org/abs/2203.07737).
 
-![](./images/arcnet_overview.png)
+![Overview of ArcNet](./images/arcnet_overview.png)
+Here is the citation information:
+
+```
+@article{li2022annotation,
+  title={An annotation-free restoration network for cataractous fundus images},
+  author={Li, Heng and Liu, Haofeng and Hu, Yan and Fu, Huazhu and Zhao, Yitian and Miao, Hanpei and Liu, Jiang},
+  journal={IEEE Transactions on Medical Imaging},
+  volume={41},
+  number={7},
+  pages={1699--1710},
+  year={2022},
+  publisher={IEEE}
+}
+```
 
 # Structure-consistent Restoration Network for Cataract Fundus Image Enhancement
 
-We propose a method of structure-consistent restoration network for cataract fundus image enhancement [[arXiv]](https://arxiv.org/abs/2206.04684). 
+A method of structure-consistent restoration network for cataract fundus image enhancement is proposed referring to [[arXiv]](https://arxiv.org/abs/2206.04684). 
 
 ![](./images/scrnet_overview.png)
 
+Here is the citation information:
+
+```
+@article{li2022annotation,
+  title={An annotation-free restoration network for cataractous fundus images},
+  author={Li, Heng and Liu, Haofeng and Hu, Yan and Fu, Huazhu and Zhao, Yitian and Miao, Hanpei and Liu, Jiang},
+  journal={IEEE Transactions on Medical Imaging},
+  volume={41},
+  number={7},
+  pages={1699--1710},
+  year={2022},
+  publisher={IEEE}
+}
+```
+
+
+
 # A Generic Fundus Image Enhancement Network Boosted by Frequency Self-supervised Representation Learning
 
-We propose a generic fundus image enhancement network (GFE-Net) to solve any image degradation without supervised data.
+A generic fundus image enhancement network (GFE-Net) to solve any image degradation without supervised data, which is accepted by Medical Image Analysis in August, 2023. More information referring to [arXiv](https://arxiv.org/abs/2309.00885).
+
+![](./images/gfenet_overview.png)
+
+Here is the citation information:
+
+```
+@article{li2023generic,
+  title={A generic fundus image enhancement network boosted by frequency self-supervised representation learning},
+  author={Li, Heng and Liu, Haofeng and Fu, Huazhu and Xu, Yanwu and Shu, Hui and Niu, Ke and Hu, Yan and Liu, Jiang},
+  journal={arXiv preprint arXiv:2309.00885},
+  year={2023},
+}
+```
 
 
 # Prerequisites
@@ -198,5 +242,11 @@ In  test.py
   pages={487--496},
   year={2022},
   organization={Springer}
+}
+@article{li2023generic,
+  title={A generic fundus image enhancement network boosted by frequency self-supervised representation learning},
+  author={Li, Heng and Liu, Haofeng and Fu, Huazhu and Xu, Yanwu and Shu, Hui and Niu, Ke and Hu, Yan and Liu, Jiang},
+  journal={arXiv preprint arXiv:2309.00885},
+  year={2023},
 }
 ```
