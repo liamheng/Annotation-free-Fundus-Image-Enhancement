@@ -52,10 +52,15 @@ Here is the citation information:
 
 ```
 @article{li2023generic,
-  title={A generic fundus image enhancement network boosted by frequency self-supervised representation learning},
-  author={Li, Heng and Liu, Haofeng and Fu, Huazhu and Xu, Yanwu and Shu, Hui and Niu, Ke and Hu, Yan and Liu, Jiang},
-  journal={arXiv preprint arXiv:2309.00885},
-  year={2023},
+  title = {A generic fundus image enhancement network boosted by frequency self-supervised representation learning},
+  journal = {Medical Image Analysis},
+  volume = {90},
+  pages = {102945},
+  year = {2023},
+  issn = {1361-8415},
+  doi = {https://doi.org/10.1016/j.media.2023.102945},
+  url = {https://www.sciencedirect.com/science/article/pii/S1361841523002050},
+  author = {Heng Li and Haofeng Liu and Huazhu Fu and Yanwu Xu and Hai Shu and Ke Niu and Yan Hu and Jiang Liu},
 }
 ```
 
